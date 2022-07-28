@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>F Dean</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h5 {font-family: "Garamond", serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: background.jpg;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-middle w3-jumbo">
+    <p>F. Dean</p>
+  </div>
+  <div class="w3-display-topleft w3-container w3-xlarge">
+         
+    <p><button onclick="document.getElementById('about').style.display='block'" class="w3-button w3-black">about</button></p>
+    
+    <p><button onclick="document.getElementById('publications').style.display='block'" class="w3-button w3-black">publications</button></p>
+    
+    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">contact</button></p>
+  </div>
+  <div class="w3-display-bottomleft w3-container">
+    <p class="w3-xlarge"></p>
+    <p class="w3-large"></p>
+    <p>powered by github | template from <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </div>
+</div>
+
+<!-- CV -->
+<div id="about" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black w3-display-container">
+      <span onclick="document.getElementById('about').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      
+      <h1>Education</h1>
+    </div>
+    <div class="w3-container">
+      <h5>University of California, Berkeley</h5>
+      <h7><i>PhD Student, Mathematics, 2021-Present</i></h7>
+      <h5>University of Washington, Seattle </h5>
+      <h7><i>Graduate Non-Matriculated, Global Health, 2019-2021</i></h7>
+      <h5>Williams College </h5>
+      <h7><i>Bachelor of Arts, Mathematics, 2015-2019</i></h7>
+    </div>
+    <div class="w3-container w3-black">
+      <h1>Experience</h1>
+    </div>
+    <div class="w3-container">
+    	<h5>Institute for Health Metrics and Evaluation</h5>
+        <h7><i>Part Time Researcher 2021-Present</i></h7>
+      <h5>University of California, Berkeley</h5>
+      <h7><i>Graduate Student Instructor, 2021-2022</i></h7>
+      <h5>Institute for Health Metrics and Evaluation </h5>
+      <h7><i>Post Bachelor Fellow 2019-2021</i></h7>
+      <h5>Williams College </h5>
+      <h7><i>Teaching Assistant 2017-2019</i></h7>
+      <h5>SMALL REU in Mathematics </h5>
+      <h7><i>Researhcer Tropical Geometry 2018</i></h7>
+    </div>
+    <div class="w3-container w3-black">
+     </div>
+     <div class="w3-container w3-black">
+    <h1>Presentations</h1>
+    </div>
+    <div class="w3-container">
+      <h5>Binomial Ideals, CAAGS Berkeley, May 2022</h5>
+      <h5>Cancer Survival Estimation in the GBD Study, IHME Science Seminar Series, Sept 2020 </h5>
+      <h5>Graphs of Gonality Three, Joint Mathematics Meetings, Jan 2019 </h5>
+      <h5>Chip Firing Games and Gonality, Williams College, Oct 2018 </h5>
+      <h5> Computing Graph Gonality with Brambles, MAA Mathfest, Aug 2018 </h5>
+    </div>
+    <div class="w3-container w3-black">
+    <h1>Technial Skills</h1>
+    </div>
+    <div class="w3-container">
+      <h5><b>Languages:</b> R (fluent), Python (proficient)</h5>
+      <h5><b>Software:</b> Latex, Mathematica, Macaulay2</h5>
+    </div>
+  </div>
+</div>
+
+
+<!-- Publications Modal -->
+<div id="publications" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black w3-display-container">
+      <span onclick="document.getElementById('publications').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Publications/Preprints</h1>
+    </div>
+    <div class="w3-container">
+      <h5>The global burden of adolescent and young adult cancer in 2019: a 	systematic analysis for the Global Burden of Disease Study 2019</h5>
+      <h7><i>E. Alvarez et. al December 2021. Lancet Oncol 2022; 23: 27–52 https://doi.org/10.1016/S1470-2045(21)00581-7</i></h7>
+      <h5>Cancer incidence, mortality, years of life lost, years lived with disability, and disability-adjusted life years for
+29 cancer groups from 2010 to 2019</h5>
+      <h7><i>J. Kocarnik et. al December 2021. JAMA Oncol. 2022;8(3):420-444. DOI:10.1001/jamaoncol.2021.6987</i></h7>
+    <h5>Gonality sequences of graph</h5>
+      <h5>Multiplicity Free Gonality</h5>
+      <h7>F. Dean et al July 2021. https://arxiv.org/abs/2107.12955</h7>
+      <h7><i>I. Aidun et. al April 2021. SIAM J. Discrete Math., Vol 35 (2), p 814–839. DOI: 10.1137/20M1323072</i></h7>
+      <h5>Global burden of 369 diseases and injuries in 204 countries and territories, 1990–2019: a systematic analysis
+for the Global Burden of Disease Study 201</h5>
+      <h7><i>T. Vos et. al October 2020. The Lancet, Vol 396 (10258), DOI: 10.1016/S0140-6736(20)30925-9</i></h7>
+      <h5>Treewidth and gonality of glued grid graph</h5>
+      <h7><i>I. Aidun et. al May 2020. Discrete Applied Mathematics, Vol 279, DOI: 10.1016/j.dam.2019.10.024</i></h7>
+      <h5>Tired: A Reflection on Asceticism and the Value of Quantitative Assessment</h5>
+      <h7>Journal of Humanistic Mathematics, DOI: 10.5642/jhummath.202001.19</h7>
+      <h5>Graphs of gonality 3</h5>
+      <h7>Journal of Algebraic Combinatorics, Vol 2 (2019), DOI: 10.5802/alco.80</h7>
+    </div>
+    </div>
+   </div>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Contact</h1>
+    </div>
+    <div class="w3-container">
+      <p>frances_dean at berkeley dot edu</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
