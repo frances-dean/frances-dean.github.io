@@ -93,7 +93,7 @@
                         wind: data.hourly.windspeed_10m[i],
                         rain: data.hourly.precipitation_probability[i]
                     }))
-                    .filter(d => new Date(d.time) >= now && new Date(d.time) <= endTime);
+                    .filter(d => new Date(d.time) >= startTime && new Date(d.time) <= endTime);
 
 
                 const tempsF = hoursData.hourly.temperature_2m.map(tempC => tempC * 9 / 5 + 32);
