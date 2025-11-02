@@ -90,7 +90,10 @@
                 const maxRain = Math.max(...rains);
 
                 const outfit = chooseOutfit(minTemp, maxWind, minCloud, maxRain);
-                document.getElementById("recommendation").innerText = `Recommended outfit: ${outfit}`;
+                const message = outfit === "jacket" 
+                    ? "Yes!" 
+                    : `No, you should wear "${outfit}"`;
+                document.getElementById("recommendation").innerText = message;
             } catch (err) {
                 console.error(err);
                 document.getElementById("recommendation").innerText = "Error fetching weather data";
