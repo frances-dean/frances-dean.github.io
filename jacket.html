@@ -73,11 +73,9 @@
                 const hoursToFetch = 2;
                 const now = new Date();
                 
-                const startTime = now.toISOString().split('.')[0]; // e.g. "2025-11-02T06:00:00"
-                const endTime = new Date(now.getTime() + hoursToFetch * 60 * 60 * 1000)
-                  .toISOString()
-                  .split('.')[0];
-                
+                const startTime = now.toISOString().slice(0,16); // "YYYY-MM-DDTHH:mm"
+                const endTime = new Date(now.getTime() + hoursToFetch*60*60*1000).toISOString().slice(0,16);
+
                 console.log("Start (UTC):", startTime);
                 console.log("End   (UTC):", endTime);
 
