@@ -55,17 +55,16 @@
         // Simple decision rule 
         function chooseOutfit(temp, wind, cloud, rain) {
             if (temp < 45) return "pants";
-            if (temp < 50) return "jacket";
+            if (temp < 50 && temp >= 45) return "jacket";
             if (temp < 55 && temp >= 50) {
                 if (rain < 20 && cloud < 30 && wind < 15) return "long sleeve";
-                else return "long";
+                else return "jacket";
             }
-            if (temp > 60) return "short sleeve";
-            if (temp > 55) {
+            if (temp >= 55) {
                 if (rain < 20 && cloud < 30 && wind < 15) return "short sleeve";
-                else return "long";
+                else return "long sleeve";
             }
-            return "long";
+            if (temp >= 60) return "short sleeve";
         }
 
         async function updateRecommendation() {
