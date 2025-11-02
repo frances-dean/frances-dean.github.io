@@ -109,7 +109,7 @@
                     }))
                     .filter(d => new Date(d.time) >= now && new Date(d.time) <= end);
 
-                console.log("Filtered hoursData:", hoursData);
+                
 
                 const tempsF = hoursData.map(d => d.temp * 9 / 5 + 32);
                 const clouds = hoursData.map(d => d.cloud);
