@@ -83,10 +83,21 @@
                 const response = await fetch(url)
                 const data = await response.json();
 
-                const tempsF = data.hourly.temperature_2m.map(tempC => tempC * 9 / 5 + 32);
-                const clouds = data.hourly.cloudcover;
-                const windsMph = data.hourly.windspeed_10m.map(speedKmh => speedKmh * 0.621371);
-                const rains = data.hourly.precipitation_probability;
+                const hoursData = data.hourly.time
+                    .map((t, i) => ({
+                        time: t,
+                        temp: data.hourly.temperature_2m[i],
+                        cloud: data.hourly.cloudcover[i],
+                        wind: data.hourly.windspeed_10m[i],
+                        rain: data.hourly.precipitation_probability[i]
+                    }))
+                    .filter(d => new Date(d.time) >= now && new Date(d.time) <= endTime);
+
+
+                const tempsF = hoursData.hourly.temperature_2m.map(tempC => tempC * 9 / 5 + 32);
+                const clouds = hoursData.hourly.cloudcover;
+                const windsMph = hoursData.hourly.windspeed_10m.map(speedKmh => speedKmh * 0.621371);
+                const rains = hoursData.hourly.precipitation_probability;
 
                 console.log("Raw data:", data.hourly);
                 console.log("Temps (F):", tempsF);
