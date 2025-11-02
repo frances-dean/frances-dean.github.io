@@ -40,6 +40,18 @@
             font-size: 1.5em;
             color: #2e8b57;
         }
+        .recommendation {
+        font-size: 2em;             /* Make text bigger */
+        font-weight: bold;           /* Bold */
+        font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font */
+        }
+        .yes {
+            color: green;
+        }
+        .no {
+            color: red;                  /* Or any color you prefer for "No" */
+        }
+</style>
     </style>
 </head>
 <body>
@@ -118,10 +130,16 @@
                 const maxRain = Math.max(...rains);
 
                 const outfit = chooseOutfit(minTemp, maxWind, minCloud, maxRain);
-                const message = outfit === "jacket" 
-                    ? "Yes!" 
-                    : `No, you should wear ${outfit}.`;
-                document.getElementById("recommendation").innerText = message;
+                const messageElement = document.getElementById("recommendation");
+
+                if (outfit === "jacket") {
+                    messageElement.innerHTML = "Yes!";
+                    messageElement.className = "recommendation yes";
+                } else {
+                    messageElement.innerHTML = `No, you should wear ${outfit}.`;
+                    messageElement.className = "recommendation no";
+                }
+
             } catch (err) {
                 console.error(err);
                 document.getElementById("recommendation").innerText = "Error fetching weather data";
