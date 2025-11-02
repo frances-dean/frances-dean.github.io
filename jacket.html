@@ -84,6 +84,8 @@
                 const url = `https://api.open-meteo.com/v1/forecast?latitude=37.83&longitude=-122.48&hourly=temperature_2m,cloudcover,windspeed_10m,precipitation_probability&start=${startTime}&end=${endTime}`;
                 const response = await fetch(url)
                 const data = await response.json();
+                const end = new Date(now.getTime() + hoursToFetch*60*60*1000);
+
 
                 const hoursData = data.hourly.time
                     .map((t, i) => ({
@@ -93,7 +95,7 @@
                         wind: data.hourly.windspeed_10m[i],
                         rain: data.hourly.precipitation_probability[i]
                     }))
-                    .filter(d => new Date(d.time) >= startTime && new Date(d.time) <= endTime);
+                    .filter(d => new Date(d.time) >= now && new Date(d.time) <= end);
 
 
                 const tempsF = hoursData.hourly.temperature_2m.map(tempC => tempC * 9 / 5 + 32);
