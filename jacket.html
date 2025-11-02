@@ -54,17 +54,18 @@
     <script>
         // Simple decision rule 
         function chooseOutfit(temp, wind, cloud, rain) {
-            if (temp < 45) return "pants";
-            if (temp < 50 && temp >= 45) return "jacket";
-            if (temp < 55 && temp >= 50) {
-                if (rain < 20 && cloud < 30 && wind < 15) return "long sleeve";
+            if (temp >= 60) return "a short sleeve";
+            if (temp >= 55) {
+                if (rain < 20 && cloud < 30 && wind < 15) return "a short sleeve";
+                else return "a long sleeve";
+            }
+            if (temp >= 50) {
+                if (rain < 20 && cloud < 30 && wind < 15) return "a long sleeve";
                 else return "jacket";
             }
-            if (temp >= 55) {
-                if (rain < 20 && cloud < 30 && wind < 15) return "short sleeve";
-                else return "long sleeve";
-            }
-            if (temp >= 60) return "short sleeve";
+            if (temp >= 45) return "jacket";
+            return "PANTS"; // temp < 45
+    }
         }
 
         async function updateRecommendation() {
@@ -96,11 +97,14 @@
                     }))
                     .filter(d => new Date(d.time) >= now && new Date(d.time) <= end);
 
+                console.log("Filtered hoursData:", hoursData);
 
                 const tempsF = hoursData.map(d => d.temp * 9 / 5 + 32);
                 const clouds = hoursData.map(d => d.cloud);
                 const windsMph = hoursData.map(d => d.wind * 0.621371);
                 const rains = hoursData.map(d => d.rain);
+                
+                
 
                 console.log("Raw data:", data.hourly);
                 console.log("Temps (F):", tempsF);
@@ -116,7 +120,7 @@
                 const outfit = chooseOutfit(minTemp, maxWind, minCloud, maxRain);
                 const message = outfit === "jacket" 
                     ? "Yes!" 
-                    : `No, you should wear "${outfit}"`;
+                    : `No, you should wear ${outfit}.`;
                 document.getElementById("recommendation").innerText = message;
             } catch (err) {
                 console.error(err);
