@@ -97,10 +97,10 @@
                     .filter(d => new Date(d.time) >= now && new Date(d.time) <= end);
 
 
-                const tempsF = hoursData.hourly.temperature_2m.map(tempC => tempC * 9 / 5 + 32);
-                const clouds = hoursData.hourly.cloudcover;
-                const windsMph = hoursData.hourly.windspeed_10m.map(speedKmh => speedKmh * 0.621371);
-                const rains = hoursData.hourly.precipitation_probability;
+                const tempsF = hoursData.map(d => d.temp * 9 / 5 + 32);
+                const clouds = hoursData.map(d => d.cloud);
+                const windsMph = hoursData.map(d => d.wind * 0.621371);
+                const rains = hoursData.map(d => d.rain);
 
                 console.log("Raw data:", data.hourly);
                 console.log("Temps (F):", tempsF);
