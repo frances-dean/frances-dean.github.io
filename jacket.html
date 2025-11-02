@@ -84,6 +84,12 @@
                 const windsMph = data.hourly.windspeed_10m.map(speedKmh => speedKmh * 0.621371);
                 const rains = data.hourly.precipitation_probability;
 
+                console.log("Raw data:", data.hourly);
+                console.log("Temps (F):", tempsF);
+                console.log("Cloud cover (%):", clouds);
+                console.log("Wind speed (mph):", windsMph);
+                console.log("Rain probability (%):", rains);
+
                 const minTemp = Math.min(...tempsF);
                 const minCloud = Math.min(...clouds);
                 const maxWind = Math.max(...windsMph);
