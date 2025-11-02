@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Outfit Recommendation</title>
+</head>
+<body>
+    <h1>Should I wear a jacket today on Hawk Hill?</h1>
+    <p id="recommendation">Loading...</p>
+
+    <script>
+        // Decision function (mirrors your Python rules)
+        function chooseOutfit(temp, wind, cloud, rain) {
+            if (temp < 45) return "pants";
+            if (temp < 55) return "jacket";
+            if (temp > 60) return "short sleeve";
+            if (temp > 55) {
+                if (rain < 20 && cloud < 30 && wind < 15) return "short sleeve";
+                else return "long";
+            }
+            return "long";
+        }
+
+        async function updateRecommendation() {
+            try {
+                // Fetch weather data from Open-Meteo
+                const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=37.83&longitude=-122.48&hourly=temperature_2m,cloudcover,windspeed_10m,precipitation_probability");
+                const data = await response.json();
+
+                // Take min/max values as in your Python logic
+                const temps = data.hourly.temperature_2m;
+                const clouds = data.hourly.cloudcover;
+                const winds = data.hourly.windspeed_10m;
+                const rains = data.hourly.precipitation_probability;
+
+                const minTemp = Math.min(...temps);
+                const minCloud = Math.min(...clouds);
+                const maxWind = Math.max(...winds);
+                const maxRain = Math.max(...rains);
+
+                const outfit = chooseOutfit(minTemp, maxWind, minCloud, maxRain);
+                document.getElementById("recommendation").innerText = `Recommended outfit: ${outfit}`;
+            } catch (err) {
+                console.error(err);
+                document.getElementById("recommendation").innerText = "Error fetching weather data";
+            }
+        }
+
+        // Initial call
+        updateRecommendation();
+
+        // Update every 20 minutes (20*60*1000 ms)
+        setInterval(updateRecommendation, 20 * 60 * 1000);
+    </script>
+</body>
+</html>
