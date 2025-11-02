@@ -12,7 +12,11 @@
         // Decision function (mirrors your Python rules)
         function chooseOutfit(temp, wind, cloud, rain) {
             if (temp < 45) return "pants";
-            if (temp < 55) return "jacket";
+            if (temp < 50) return "jacket";
+            if (temp < 55 && temp >= 50) {
+                if (rain < 20 && cloud < 30 && wind < 15) return "long sleeve";
+                else return "long";
+            }
             if (temp > 60) return "short sleeve";
             if (temp > 55) {
                 if (rain < 20 && cloud < 30 && wind < 15) return "short sleeve";
@@ -28,12 +32,12 @@
                 const data = await response.json();
 
                 // Take min/max values as in your Python logic
-                const temps = data.hourly.temperature_2m;
+                const tempsF = data.hourly.temperature_2m.map(tempC => tempC * 9 / 5 + 32);
                 const clouds = data.hourly.cloudcover;
-                const winds = data.hourly.windspeed_10m;
+                const windsMph = data.hourly.windspeed_10m.map(speedKmh => speedKmh * 0.621371);
                 const rains = data.hourly.precipitation_probability;
 
-                const minTemp = Math.min(...temps);
+                const minTemp = Math.min(...tempsF);
                 const minCloud = Math.min(...clouds);
                 const maxWind = Math.max(...winds);
                 const maxRain = Math.max(...rains);
