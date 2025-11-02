@@ -73,11 +73,13 @@
                 const hoursToFetch = 2;
                 const now = new Date();
                 
-                // Open-Meteo API expects UTC ISO 8601 with seconds
-                const startTime = now.toISOString().slice(0,19); // "YYYY-MM-DDTHH:mm:ss"
-                const endTime = new Date(now.getTime() + hoursToFetch*60*60*1000).toISOString().slice(0,19);
+                const startTime = now.toISOString().split('.')[0]; // e.g. "2025-11-02T06:00:00"
+                const endTime = new Date(now.getTime() + hoursToFetch * 60 * 60 * 1000)
+                  .toISOString()
+                  .split('.')[0];
                 
-                console.log("Start:", startTime, "End:", endTime);
+                console.log("Start (UTC):", startTime);
+                console.log("End   (UTC):", endTime);
                 
                 const url = `https://api.open-meteo.com/v1/forecast?latitude=37.83&longitude=-122.48&hourly=temperature_2m,cloudcover,windspeed_10m,precipitation_probability&start=${startTime}&end=${endTime}`;
                 const response = await fetch(url)
