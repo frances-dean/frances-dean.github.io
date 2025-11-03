@@ -89,7 +89,18 @@ function showAbs(id)
 
 <div class="main">
         <div class="header">
-			<img class="profile" src="DSCF0183-Edit.jpeg" alt="Franny Dean" width="200">
+			<img id="randomPhoto" src="" alt="Franny Dean" width="200">
+			<script>
+		    // List of your photo file paths
+		    const photos = [
+		      "DSCF0183-Edit.jpeg",
+		      "IMG_6153.jpeg"
+		    ];
+		
+		    // Option 1: Choose randomly each time page loads
+		    const randomIndex = Math.floor(Math.random() * photos.length);
+		    document.getElementById("randomPhoto").src = photos[randomIndex];
+			</script>
             <div class="title">
                 Franny Dean
             </div>
