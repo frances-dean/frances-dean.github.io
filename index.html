@@ -10,16 +10,14 @@
     <link rel="stylesheet" type="text/css" href="default.css">
 		<title>Franny Dean</title>
 
-<!-- Flush left and flush right text for abstracts-->
-
 <style type="text/css">
 	.title {
-    font-size: 25px; /* Bigger and more elegant */
+    font-size: 25px;
     font-weight: bold;
     
     font-family: "Book Antiqua", "Palatino Linotype", serif;
     margin-top: 30px;
-    color: #2c3e50; /* Deep blue-gray for a classy touch */
+    color: #2c3e50; 
 }
 a {
   color: inherit;
@@ -32,7 +30,7 @@ a {
     
     font-family: "Book Antiqua", "Palatino Linotype", serif;
     margin-bottom: 20px;
-    color: #34495e; /* Slightly softer than title */
+    color: #34495e;
 }
 
 .sec_title {
@@ -40,7 +38,7 @@ a {
     font-weight: bold;
     font-family: "Book Antiqua", "Palatino Linotype", serif;
     margin-top: 30px;
-    border-bottom: 2px solid #7f8c8d; /* Adds a subtle underline */
+    border-bottom: 2px solid #7f8c8d; 
     padding-bottom: 5px;
     color: #2c3e50;
 }
@@ -54,8 +52,7 @@ a {
 	
    </style>
 
-	
-<!-- For LaTeX:-->
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
           src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -69,8 +66,6 @@ a {
 	<div style="text-align:center;">
 	</div>
 -->
-
-<!-- For showing/hiding abstracts:-->
 <script>
 function showAbs(id)
 {
@@ -91,14 +86,27 @@ function showAbs(id)
         <div class="header">
 			<img id="randomPhoto" src="" alt="Franny Dean" width="200">
 			<script>
-		    // List of your photo file paths
+		    
 		    const photos = [
-		      "DSCF0183-Edit.jpeg",
-		      // "IMG_6153_edit.jpeg"
+		      { src: "DSCF0183-Edit.jpeg", weight: 0.8 },
+		      { src: "IMG_6153_edit.jpeg", weight: 0.2 }
 		    ];
-	
-		    const randomIndex = Math.floor(Math.random() * photos.length);
-		    document.getElementById("randomPhoto").src = photos[randomIndex];
+
+			const total = photos.reduce((sum, p) => sum + p.weight, 0);
+		    // const randomIndex = Math.floor(Math.random() * photos.length);
+			let rand = Math.random() * total;
+		    // Select the photo according to weights
+		    let chosen;
+		    for (const p of photos) {
+		      if (rand < p.weight) {
+		        chosen = p.src;
+		        break;
+		      }
+		      rand -= p.weight;
+		    }
+		
+		    document.getElementById("randomPhoto").src = chosen;	
+		    // document.getElementById("randomPhoto").src = photos[randomIndex];
 			</script>
             <div class="title">
                 Franny Dean
