@@ -69,7 +69,8 @@
             if (temp >= 60) return "a short sleeve";
             if (temp >= 55) {
                 if (rain < 20 && cloud < 30 && wind < 15) return "a short sleeve";
-                else return "a long sleeve";
+                else if (rain < 40 && cloud < 50 && wind < 15) return "a long sleeve";
+                else return "jacket";
             }
             if (temp >= 50) {
                 if (rain < 20 && cloud < 30 && wind < 15) return "a long sleeve";
