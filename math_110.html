@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MATH 110-3 | Linear Algebra | Summer 2023</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      color: #292929;
+      background: #f7f7f5;
+      line-height: 1.65;
+    }
+
+    header {
+      background: #142b45;
+      color: white;
+      padding: 55px 24px;
+    }
+
+    header .content,
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      margin: 0 0 8px;
+      font-weight: normal;
+    }
+
+    header p {
+      color: #d5dfeb;
+      margin: 0;
+    }
+
+    main {
+      padding: 35px 24px 70px;
+    }
+
+    section {
+      background: white;
+      padding: 25px 30px;
+      margin-bottom: 24px;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: normal;
+      color: #142b45;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: #315f91;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .announcement {
+      background: #f5f7fa;
+      padding: 15px 20px;
+      border-left: 3px solid #315f91;
+      margin-bottom: 18px;
+    }
+
+    .course-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .course-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .due {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="content">
+    <h1>MATH 110-3: Linear Algebra</h1>
+    <p>Summer 2023</p>
+    <p>University of California, Berkeley</p>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Announcements</h2>
+
+    <ul class="course-list">
+      <li>
+        <a href="Math_110_3_Course_Schedule.pdf">Course Schedule</a>
+      </li>
+    </ul>
+
+    <div class="announcement">
+      <h3>SLC Upper Division Peer Tutoring Program</h3>
+      <p>
+        Drop-In Services begin on Wed. 07/05 from 12-5pm in the
+        <a href="https://www.berkeley.edu/map/?cesarchavez">
+          Cesar Chavez Atrium
+        </a>
+        Math/Stat Drop-In Area.
+      </p>
+      <p>
+        There will be at least one tutor for Math 110 during all of our
+        open hours: Monday 12-4pm and Tuesday-Thursday 12-5pm.
+      </p>
+      <p>
+        Students can see the
+        <a href="https://docs.google.com/spreadsheets/d/1yEHdXrtgXAPDtBA0XaOk_m60ni9lXhzRMaaoRHiirsk/edit?usp=sharing">
+          Drop-in Schedule
+        </a>
+        for the exact tutors available at any given open hour.
+      </p>
+    </div>
+
+    <ul class="course-list">
+      <li>
+        <a href="Math_110_3_Midterm_Practice_and_Study_Guide.pdf">
+          Midterm Study Guide
+        </a>
+      </li>
+      <li>
+        <a href="Math_110_3_Final_Study_Guide_Terms_and_Results.pdf">
+          Final Study Guide
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Course Links</h2>
+    <ul class="course-list">
+      <li><a href="Math_110_3_Syllabus.pdf">Syllabus</a></li>
+      <li>
+        <a href="https://search.library.berkeley.edu/discovery/fulldisplay?docid=alma991011320639706532&context=L&vid=01UCS_BER:UCB&lang=en&search_scope=DN_and_CI&adaptor=Local%20Search%20Engine&tab=Default_UCLibrarySearch&query=any,contains,linear%20algebra%20done%20right&offset=0">
+          Textbook: Linear Algebra Done Right
+        </a>
+      </li>
+      <li><a href="https://www.overleaf.com/read/ycwqmpkckxxm">Overleaf Template</a></li>
+      <li><a href="https://detexify.kirelabs.org/classify.html">Detexify</a></li>
+      <li><a href="https://linear.axler.net/LADRvideos.html">Axler's Video Lectures</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Homework</h2>
+    <ul class="course-list">
+      <li>
+        <a href="Math_110_3_Homework_1.pdf">Homework 1</a>
+        <span class="due">— Due June 21, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/cjkqzfyngdzp">Overleaf Template</a>
+      </li>
+      <li>
+        <a href="Math_110_3_Homework_2.pdf">Homework 2</a>
+        <span class="due">— Due June 28, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/xtkmytttngrt">Overleaf Template</a>
+      </li>
+      <li>
+        <a href="Math_110_3_Homework_3.pdf">Homework 3</a>
+        <span class="due">— Due July 5, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/rsnbwybzkhmq">Overleaf Template</a>
+      </li>
+      <li>
+        <a href="Math_110_3_Homework_4.pdf">Homework 4</a>
+        <span class="due">— Due July 12, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/jqrmmypwwdhs">Overleaf Template</a>
+      </li>
+      <li>
+        <a href="Math_110_3_Homework_5.pdf">Homework 5</a>
+        <span class="due">— Due July 19, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/xkddkvhhpnjw">Overleaf Template</a>
+      </li>
+      <li>
+        <a href="Math_110_3_Homework_6.pdf">Homework 6</a>
+        <span class="due">— Due July 26, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/sfcrcpdvvhrj">Overleaf Template</a>
+      </li>
+      <li>
+        <a href="Math_110_3_Homework_7.pdf">Homework 7</a>
+        <span class="due">— Due August 2, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/xggrfsbzfsbx">Overleaf Template</a>
+      </li>
+      <li>
+        <a href="Math_110_3_Homework_8.pdf">Homework 8</a>
+        <span class="due">— Due August 9, 4:10pm</span><br>
+        <a href="https://www.overleaf.com/read/gfwkqnykwrrq">Overleaf Template</a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Lecture Notes</h2>
+    <ul class="course-list">
+      <li><a href="MATH_110_3_Lecture_1_June_20__2023.pdf">Lecture 1 — June 20, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_2_June_21__2023.pdf">Lecture 2 — June 21, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_3_June_22__2023.pdf">Lecture 3 — June 22, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_4_June_26__2023.pdf">Lecture 4 — June 26, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_5_June_27__2023.pdf">Lecture 5 — June 27, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_6_June_28__2023_.pdf">Lecture 6 — June 28, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_7_June_29__2023.pdf">Lecture 7 — June 29, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_8_July_3__2023.pdf">Lecture 8 — July 3, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_9_July_5__2023.pdf">Lecture 9 — July 5, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_10_July_6__2023.pdf">Lecture 10 — July 6, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_11_July_10__2023.pdf">Lecture 11 — July 10, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_12_July_11__2023.pdf">Lecture 12 — July 11, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_13_July_12__2023.pdf">Review Slides — July 12, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_14_July_17__2023.pdf">Lecture 14 — July 17, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_15_July_18__2023.pdf">Lecture 15 — July 18, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_16_July_19__2023.pdf">Lecture 16 — July 19, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_17_July_20__2023.pdf">Lecture 17 — July 20, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_18_July_24__2023.pdf">Lecture 18 — July 24, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_19_July_25__2023.pdf">Lecture 19 — July 25, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_20_July_26__2023.pdf">Lecture 20 — July 26, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_21_July_27__2023.pdf">Lecture 21 — July 27, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_22_July_31__2023.pdf">Lecture 22 — July 31-August 1, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_23_August_2__2023.pdf">Lecture 23 — August 1-2, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_24_August_2__2023.pdf">Lecture 24 — August 2-3, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_25_August_3__2023.pdf">Lecture 25 — August 3, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_26_August_7__2023.pdf">Lecture 26 — August 7, 2023</a></li>
+      <li><a href="MATH_110_3_Lecture_27_Final_Review.pdf">Final Review — August 8-9, 2023</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  MATH 110-3 · Linear Algebra · UC Berkeley · Summer 2023
+</footer>
+
+</body>
+</html>
